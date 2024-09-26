@@ -1,0 +1,128 @@
+<div class="content">
+    <div class="header">
+        <div class="title">
+            <a routerLink="/informs"> <img mat-card-image src="https://cero-vueltas.s3.amazonaws.com/app/ic_back.png"
+                                           width="26px"
+                                           height="26px" alt="icon back to screen">
+            </a>
+            <router-outlet></router-outlet>
+            <h4>{{ getTypeInformStatus(dataInform.type) }}</h4>
+        </div>
+        <button *ngIf="dataInform.status == '0'" mat-raised-button (click)="save()" color="warn">Guardar cambios</button>
+    </div>
+
+    <mat-progress-bar  *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <div *ngIf="!loading"  >
+        <mat-card *ngIf="dataInform.type == '0' || dataInform.type == '2'" class="content-card">
+            <mat-card-header>
+                <label class="mat-subtitle-1"> Información de la empresa </label>
+            </mat-card-header>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Nombre de la empresa </label>
+                    <input [(ngModel)]="dataInform.name_company" placeholder="{{ dataInform.name_company }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Rut de la empresa </label>
+                    <input [(ngModel)]="dataInform.rut_company" placeholder="{{ dataInform.rut_company }}">
+                </div>
+            </mat-card-content>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Clave tributaria de la empresa </label>
+                    <input [(ngModel)]="dataInform.pass_company" placeholder="{{ dataInform.pass_company  }}">
+                </div>
+                <div [class.hidden]="true" class="input-container">
+                    <label class="mat-subtitle-2"> </label>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card *ngIf="dataInform.type == '1' || dataInform.type == '3' " class="content-card">
+            <mat-card-header>
+                <label class="mat-subtitle-1"> Información de la empresa </label>
+            </mat-card-header>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Nombre de la empresa </label>
+                    <input [(ngModel)]="dataInform.name_company" placeholder="{{ dataInform.name_company }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Rut de la empresa </label>
+                    <input [(ngModel)]="dataInform.rut_company" placeholder="{{ dataInform.rut_company }}">
+                </div>
+            </mat-card-content>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Clave tributaria de la empresa </label>
+                    <input [(ngModel)]="dataInform.pass_company" placeholder="{{ dataInform.pass_company  }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Rut de administrador de previred </label>
+                    <input [(ngModel)]="dataInform.rut_previred" placeholder="{{ dataInform.rut_previred  }}">
+                </div>
+            </mat-card-content>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Clave previred </label>
+                    <input [(ngModel)]="dataInform.pass_previred" placeholder="{{ dataInform.pass_previred  }}">
+                </div>
+                <div [class.hidden]="true" class="input-container">
+                    <label class="mat-subtitle-2"> </label>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <br>
+        <mat-card class="content-card">
+            <mat-card-header>
+                <label class="mat-subtitle-1"> Información de quien consulta </label>
+            </mat-card-header>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Nombre de quien consulta </label>
+                    <input [(ngModel)]="dataInform.name_user" placeholder="{{ dataInform.name_user  }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Nombre de socio o representante legal </label>
+                    <input [(ngModel)]="dataInform.name_partner" placeholder="{{ dataInform.name_partner  }}">
+                </div>
+            </mat-card-content>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Rut de socio o representante legal </label>
+                    <input [(ngModel)]="dataInform.rut_partner" placeholder="{{ dataInform.rut_partner }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Clave única del socio que consulta </label>
+                    <input [(ngModel)]="dataInform.pass_partner" placeholder="{{ dataInform.pass_partner }}">
+                </div>
+            </mat-card-content>
+            <mat-card-content class="input-content">
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Email </label>
+                    <input [(ngModel)]="dataInform.email_user" defaultValue="{{ dataInform.email_user  }}">
+                </div>
+                <div class="input-container">
+                    <label class="mat-subtitle-2"> Teléfono </label>
+                    <input [(ngModel)]="dataInform.phone_user" placeholder="{{ dataInform.phone_user  }}">
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <br>
+        <mat-card *ngIf="dataInform.status == '0'" class="result">
+            <mat-card-content>
+                <label class="example-h2">Correo electrónico</label>
+                <section class="example-section">
+                    <mat-slide-toggle
+                            class="example-margin"
+                            [color]="color"
+                            [checked]="checked"
+                            (change)="toggle($event)">
+                        {{ '¿Se ha enviado el correo electrónico?' }}
+                    </mat-slide-toggle>
+                </section>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

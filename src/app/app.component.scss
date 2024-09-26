@@ -1,0 +1,48 @@
+.custom-toolbar {
+    margin: 12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 20px;
+    background-color: #000839;
+}
+
+h1 {
+    padding: 0 1rem;
+    color: aqua;
+}
+
+h2 {padding: 1rem;}
+
+mat-toolbar{
+    position:fixed;
+    top:0;
+    z-index: 2;
+}
+
+mat-sidenav-container {
+    height:100%;
+}
+
+mat-sidenav {
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding:0.75rem;
+    }
+}
+
+mat-sidenav-content{
+    padding-top: 1rem;
+    @media screen and (min-width: 600px) {
+        padding-top: 1rem;
+    }
+}
+
+.content{
+    margin: 10px;
+}
+
+.is-active {
+    background-color: lightblue;
+}

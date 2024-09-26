@@ -1,0 +1,82 @@
+<div class="content">
+    <div class="header">
+        <div class="title">
+            <a routerLink="/users"> <img mat-card-image src="https://cero-vueltas.s3.amazonaws.com/app/ic_back.png"
+                                         width="26px"
+                                         height="26px" alt="icon back to screen">
+            </a>
+            <router-outlet></router-outlet>
+            <h4>Editar usuario</h4>
+        </div>
+        <button *ngIf="dataUser.status == '3'" mat-raised-button (click)="save()" color="warn">Guardar cambios</button>
+    </div>
+    <mat-card class="content-card">
+        <mat-card-content class="input-content">
+            <div class="input-container">
+                <label> Nombre </label>
+                <input [disabled]="true" [(ngModel)]="value" placeholder="{{ dataUser.name }} {{ dataUser.last_name }}">
+            </div>
+            <div class="input-container">
+                <label> Email </label>
+                <input [disabled]="true" [(ngModel)]="value" placeholder="{{ dataUser.email_optional }}">
+            </div>
+            <div class="input-container">
+                <label> Teléfono </label>
+                <input [disabled]="true" [(ngModel)]="value" placeholder="{{ dataUser.phone }}">
+            </div>
+            <div class="input-container">
+                <label> Cédula </label>
+                <input [disabled]="true" [(ngModel)]="value" placeholder="{{ dataUser.document }}">
+            </div>
+            <div class="input-container">
+                <label> Profesión </label>
+                <input [disabled]="true" [(ngModel)]="value"
+                       [placeholder]="dataUser.type_user == 1 ? 'Contador' : 'Abogado'">
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card>
+        <mat-card-header>
+            <label> Documentos adjuntos </label>
+        </mat-card-header>
+        <mat-card-content class="document-content">
+            <div class="image-container">
+                <!--<a href="{{dataUser.photos[0]}}" target="_blank">
+                    <img src="../../assets/pdf.png" alt="PDF Icon" height="60" width="60">
+                </a>-->
+                <a href="{{dataUser.photos[0]}}" target="_blank">
+                    <mat-card class="image-card">
+                        <img src="{{dataUser.photos[0]}}" alt="Image" class="image">
+                    </mat-card>
+                </a>
+            </div>
+            <div class="image-container">
+               <!-- <a href="{{dataUser.photos[1]}}" target="_blank">
+                    <img src="../../assets/pdf.png" alt="PDF Icon" height="60" width="60">
+                </a>-->
+                <a href="{{dataUser.photos[1]}}" target="_blank">
+                    <mat-card class="image-card">
+                        <img src="{{dataUser.photos[1]}}" alt="Image" class="image">
+                    </mat-card>
+                </a>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card *ngIf="dataUser.status == '3'" class="result">
+        <mat-card-content>
+            <label class="example-h2">Aprobación</label>
+            <section  class="example-section">
+                <mat-slide-toggle
+                        class="example-margin"
+                        [color]="color"
+                        [checked]="checked"
+                        (change)="toggle($event)"
+                        [disabled]="disabled">
+                    {{ checked ? 'Usuario aprobado' : '¿Deseas aprobar el registro de este usuario?' }}
+                </mat-slide-toggle>
+            </section>
+        </mat-card-content>
+    </mat-card>
+</div>

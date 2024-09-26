@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px;
+  background-color: #000839;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+h4{
+  color: white;
+  padding-left: 12px;
+}
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Optionally, set a specific height for vertical centering */
+}

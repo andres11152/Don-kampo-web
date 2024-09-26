@@ -1,0 +1,57 @@
+<div class="content">
+    <div class="header">
+        <h4>Informes pendientes</h4>
+    </div>
+
+    <ng-container *ngIf="data.length > 0; else emptyList">
+        <table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="name_company">
+                <th mat-header-cell *matHeaderCellDef> Nombre empresa</th>
+                <td mat-cell *matCellDef="let element"> {{ element.name_company }}</td>
+            </ng-container>
+
+            <!-- date Column -->
+            <ng-container matColumnDef="CreatedAt">
+                <th mat-header-cell *matHeaderCellDef> Fecha de envío</th>
+                <td mat-cell *matCellDef="let element"> {{ parseDate(element.CreatedAt) }}</td>
+            </ng-container>
+
+            <!-- rut_company Column -->
+            <ng-container matColumnDef="rut_company">
+                <th mat-header-cell *matHeaderCellDef> Rut empresa</th>
+                <td mat-cell *matCellDef="let element"> {{ element.rut_company }}</td>
+            </ng-container>
+
+
+            <!-- type Column -->
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> Tipo de informe</th>
+                <td mat-cell *matCellDef="let element"> {{ getTypeInformStatus(element.type) }}</td>
+            </ng-container>
+
+            <!-- id Column -->
+            <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <a routerLink="/inform_detail/{{element.ID}}">
+                        <img  src="https://cero-vueltas.s3.amazonaws.com/app/eye.png" width="16px" height="16px" alt="https://cicletadapp.s3.amazonaws.com/">
+                    </a>
+                    <router-outlet></router-outlet>
+                </td>
+            </ng-container>
+            https://cero-vueltas.s3.amazonaws.com/app/eye.png
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </ng-container>
+    <ng-template #emptyList>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div *ngIf="!loading" class="center-content">
+            <mat-icon class="icon">info</mat-icon>
+            <p>No hay registros disponibles</p>
+        </div>
+    </ng-template>
+
+</div>
