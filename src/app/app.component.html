@@ -1,38 +1,5 @@
-<mat-sidenav-container *ngIf="isLoggedIn()" autosize>
-    <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
-        <div>
-            <img src="https://cero-vueltas.s3.amazonaws.com/app/logo_web.png" width="190px" height="120px"
-                 alt="https://cicletadapp.s3.amazonaws.com/">
-        </div>
-        <mat-list>
-            <mat-list-item style="cursor: pointer" [routerLinkActive]="['is-active']" routerLink="/users"
-                           (click)="redirectToOtherPage('/users')"> Solicitudes de registro </mat-list-item>
 
-            <mat-list-item style="cursor: pointer" [routerLinkActive]="['is-active']" routerLink="/approved"
-                           (click)="redirectToOtherPage('/approved')"> Usuarios registrados </mat-list-item>
+<!-- Aquí se cargará el contenido dinámico de las páginas según las rutas definidas -->
+<router-outlet></router-outlet>
 
-            <mat-list-item style="cursor: pointer" [routerLinkActive]="['is-active']" routerLink="/refused"
-                           (click)="redirectToOtherPage('/refused')"> Usuarios rechazados </mat-list-item>
-
-            <mat-list-item style="cursor: pointer" [routerLinkActive]="['is-active']" routerLink="/informs"
-                           (click)="redirectToOtherPage('/informs')"> Informes pendientes </mat-list-item>
-
-            <mat-list-item  style="cursor: pointer" [routerLinkActive]="['is-active']" routerLink="/reports_sent"
-                            (click)="redirectToOtherPage('/reports_sent')"> Informes enviados </mat-list-item>
-
-            <mat-list-item (click)="logout()"> Cerrar sesion </mat-list-item>
-
-        </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
-
-<div *ngIf="!isLoggedIn()">
-    <div>
-        <router-outlet></router-outlet>
-    </div>
-</div>
+<!-- Componente del pie de página -->

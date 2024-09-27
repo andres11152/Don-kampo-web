@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from "@angular/material/list";
 import { FormsModule } from "@angular/forms";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { AdminComponent } from './admin/admin.component';  // Ajusta la ruta si es diferente
+
 
 @NgModule({
   declarations: [

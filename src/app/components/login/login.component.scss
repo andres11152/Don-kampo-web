@@ -1,0 +1,86 @@
+/* Variables */
+$primary-color: #58974a; 
+$secondary-color: #73b263; /* Corrijo el nombre para que tenga coherencia */
+$light-color: #a9e996;
+
+$bg-color-2: darken($secondary-color, 20%);  /* Tono más oscuro del color secundario */
+$bg-color-3: lighten($secondary-color, 20%); /* Tono más claro del color secundario */
+
+$font-family: 'Roboto', sans-serif; 
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 82vh; /* Ajusta según sea necesario para llenar la vista */
+  background-color: $primary-color;
+}
+
+.login-box {
+  text-align: center; /* Centra el contenido dentro del cuadro */
+  width: 400px; /* Ajusta el ancho según sea necesario */
+  padding: 20px;
+  border: 1px solid $secondary-color;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 100px; /* Ajusta el ancho según sea necesario */
+  height: auto;
+  display: block; /* Asegura que la imagen esté centrada en su contenedor */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.title {
+  color: #000000;
+  margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+}
+
+.form-group {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid #E8E8F0;
+  border-radius: 4px;
+}
+
+button {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: lighten($primary-color, 10%); /* Cambiado a lighten para un efecto hover mejor */
+}
+
+.btn-pass {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: $light-color;
+  color: #000839;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.error-message {
+  color: red;
+}
