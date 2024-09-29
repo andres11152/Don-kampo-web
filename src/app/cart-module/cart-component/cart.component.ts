@@ -11,7 +11,7 @@ interface CartItem {
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CarritoComponent implements OnInit {
+export class CartComponent implements OnInit {
 
   cartItems: CartItem[] = [];
 

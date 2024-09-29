@@ -7,12 +7,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Inicio</a>
-            <a href="about.html" class="nav-item nav-link">Sobre Nosotros</a>
-            <a href="service.html" class="nav-item nav-link">Servicios</a>
-            <a href="product.html" class="nav-item nav-link">Productos</a>
-            <a href="contact.html" class="nav-item nav-link">Contacto</a>
+          <a (click)="goToPage('')" class="nav-item nav-link active">Inicio</a>
+          <a (click)="goToPage('about')" class="nav-item nav-link">Sobre Nosotros</a>
+          <a (click)="goToPage('service')" class="nav-item nav-link">Servicios</a>
+          <a (click)="goToPage('product')" class="nav-item nav-link">Productos</a>
+          <a (click)="goToPage('contact')" class="nav-item nav-link">Contacto</a>
         </div>
         <a (click)="goToCart()" class="btn btn-primary rounded-pill py-2 px-4">Carrito</a>
-    </div>
+      </div>
 </nav>

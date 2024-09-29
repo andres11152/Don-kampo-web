@@ -11,8 +11,12 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   constructor(private router: Router) {}
 
+  goToPage(page: string): void {
+    this.router.navigate([`/${page}`]);
+  }
+
   goToCart() {
-    this.router.navigate(['/carrito']);
+    this.router.navigate(['cart']);
   }
 
 }

@@ -1,48 +1,53 @@
-import { AboutComponent } from './components/about/about.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-// Componentes importados
-import { LoginComponent } from './login-module/login-component/login.component';
+// Servicios y Guards
 import { AuthGuard } from './service/auth.guard';
-import { AdminComponent } from './admin-module/admin-component/admin.component';
-import { HomeComponent } from './components/home/inicio.component';
-import { AboutComponent } from './about/about.component';
+
+// Componentes generales
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ProductosComponent } from './components/productos/productos.component';
-import { ContactoComponent } from './components/contacto/contacto.component';
-import { CarritoComponent } from './cart-module/cart/carrito.component';
-import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
-import { CartModule } from './cart-module/cart.module';
 
+// Componentes del módulo de perfil
+import { ProfileComponent } from './profile.module/profile-component/profile.component';
+
+// Componentes del módulo de login
+import { LoginComponent } from './login-module/login-component/login.component';
+
+// Componentes del módulo de administración
+import { AdminComponent } from './admin-module/admin-component/admin.component';
+
+// Componentes del módulo del carrito
+import { CartComponent } from './cart-module/cart-component/cart.component';
 
 // Definición de rutas
 const routes: Routes = [
-    { path: '', component: HomeComponent }, // Página de inicio
-    { path: 'about', component: AboutComponent },
-    { path: 'services', component: ServiciosComponent },
-    { path: 'products', component: ProductosComponent },
-    { path: 'contact', component: ContactoComponent },
-    { path: 'cart', component: CartModule },
-    { path: 'detalle-producto/:id', component: DetalleProductoComponent }, // Dinámico por producto
-    { path: 'login', component: LoginComponent },
-    { path: 'registro', component: RegistroComponent },
-    { path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard] },
-    { path: 'admin', component: AdminComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full' } // Redirección a la página de inicio si no encuentra la ruta
-  ];
+  { path: '', component: HomeComponent },                        // Página de inicio
+  { path: 'about', component: AboutComponent },                  // Página "Acerca de"
+  { path: 'services', component: ServiciosComponent },           // Página de servicios
+  { path: 'products', component: ProductosComponent },           // Página de productos
+  { path: 'contact', component: ContactComponent },             // Página de contacto
+  { path: 'cart', component: CartComponent },                    // Página de carrito
+  { path: 'login', component: LoginComponent },                  // Página de login
+  { path: 'register', component: RegistroComponent },            // Página de registro
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },  // Perfil con guardia de autenticación
+  { path: 'admin', component: AdminComponent },                  // Página de administración
+  { path: '**', redirectTo: '', pathMatch: 'full' }              // Redirección a la página de inicio para rutas no encontradas
+];
 
-// Módulo de rutas
+// Módulo de enrutamiento
 @NgModule({
-    imports: [
-        BrowserModule,
-        FormsModule,
-        RouterModule.forRoot(routes, { useHash: true }) // Utilizando hash en las rutas para evitar problemas de recarga en servidores
-    ],
-    exports: [RouterModule]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes, { useHash: true }) // Utilizando hash en las rutas para evitar problemas de recarga en servidores
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
