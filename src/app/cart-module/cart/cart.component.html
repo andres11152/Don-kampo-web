@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h2>Carrito de Compras</h2>
+    
+    <!-- Verifica si hay productos en el carrito -->
+    <div *ngIf="cartItems && cartItems.length > 0; else emptyCart">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Itera sobre los productos en el carrito -->
+          <tr *ngFor="let item of cartItems">
+            <td>{{ item.productName }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price | currency:'USD' }}</td>
+            <td>{{ item.quantity * item.price | currency:'USD' }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="removeItem(item)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Mostrar el total -->
+      <div class="text-right">
+        <h4>Total: {{ getTotal() | currency:'USD' }}</h4>
+      </div>
+  
+      <!-- Botón para proceder al pago -->
+      <div class="text-right mt-3">
+        <button class="btn btn-success" (click)="checkout()">Proceder al Pago</button>
+      </div>
+    </div>
+  
+    <!-- Mensaje si el carrito está vacío -->
+    <ng-template #emptyCart>
+      <p>Tu carrito está vacío.</p>
+    </ng-template>
+  </div>
+  
