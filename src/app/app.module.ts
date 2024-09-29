@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from "@angular/material/list";
 import { FormsModule } from "@angular/forms";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { AdminComponent } from './admin/admin.component';  // Ajusta la ruta si es diferente
-
+import { NavbarComponent } from './components/navbar/navbar.component'; 
+import { FooterComponent } from './components/footer/footer.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+   
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -28,7 +30,10 @@ import { AdminComponent } from './admin/admin.component';  // Ajusta la ruta si 
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    NavbarComponent,
+    FooterComponent,
+    AdminComponent
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

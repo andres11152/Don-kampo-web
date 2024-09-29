@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: 'detalle-producto/:id', component: DetalleProductoComponent }, // Dinámico por producto
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegistroComponent },
-    { path: 'perfil', component: PerfilComponent },
+    { path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard] },
     { path: 'admin', component: AdminComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' } // Redirección a la página de inicio si no encuentra la ruta
   ];

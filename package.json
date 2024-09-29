@@ -26,7 +26,6 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10",
-    "@angular/common/http": "^18.2.5",
     "angular-jwt": "^5.0.0"
   },
   "devDependencies": {
