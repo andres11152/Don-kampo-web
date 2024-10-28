@@ -1,0 +1,16 @@
+<div *ngIf="cartItems.length > 0; else emptyCart">
+  <h2>Carrito de Compras</h2>
+
+  <div *ngFor="let item of cartItems">
+    <p>{{ item.nombre }} (Cantidad: {{ item.cantidad }}) - ${{ item.precio * item.cantidad }}</p>
+    <button (click)="removeItem(item)">Quitar uno</button>
+    <button (click)="addItem(item)">Agregar uno más</button>
+  </div>
+
+  <h3>Total: ${{ getTotal() }}</h3>
+  <button (click)="checkout()">Proceder al Pago</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>El carrito está vacío</p>
+</ng-template>

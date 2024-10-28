@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+:root {
+  --primary: #EE7723;
+  --secondary: #00983A;
+}
+
+/* Estilo general para la barra de navegación */
+.navbar {
+  background-color: white;
+  border-bottom: 2px solid var(--primary);
+}
+
+.navbar-brand h2 {
+  color: var(--secondary);
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Aplicar la fuente aquí */
+}
+
+.navbar-toggler {
+  border-color: var(--primary);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(238, 119, 35, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: var(--secondary);
+  font-weight: 500;
+  padding: 15px;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: var(--primary);
+}
+.logo-nav {
+    /* Tamaño del logo por defecto */
+    height: 7   0px; /* Ajusta el tamaño base para desktop */
+    
+    /* Para pantallas medianas y más pequeñas (tablets y móviles) */
+    @media (max-width: 991.98px) {
+      height: 40px; /* Tamaño ajustado para tablets */
+    }
+  
+    /* Para pantallas pequeñas (móviles) */
+    @media (max-width: 767.98px) {
+      height: 30px; /* Tamaño ajustado para móviles */
+    }
+  }
+  
+
+/* Botones personalizados */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn:hover {
+  color: var(--primary);
+  opacity: 0.9;
+}
+
+/* Ajustes adicionales para tamaños */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    background-color: white;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+
+  .navbar-collapse {
+    border-top: 2px solid var(--primary);
+  }
+}
+
+.sticky-top {
+  top: 0;
+  z-index: 1020;
+}

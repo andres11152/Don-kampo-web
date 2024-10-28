@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-carrot me-3"></i>Don Kampo</h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
+  <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <img src="../../../assets/don-kampo.svg" height="60px" alt="Logo" class="logo-nav"> <!-- Cambia "ruta-al-logo/logo.png" por la ruta real de tu logo -->
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <a (click)="goToCart()" class="btn btn-primary rounded-pill py-2 px-4">Carrito</a>
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
           <a (click)="goToPage('')" class="nav-item nav-link active">Inicio</a>
           <a (click)="goToPage('about')" class="nav-item nav-link">Sobre Nosotros</a>
           <a (click)="goToPage('service')" class="nav-item nav-link">Servicios</a>
-          <a (click)="goToPage('product')" class="nav-item nav-link">Productos</a>
+          <a (click)="goToPage('products')" class="nav-item nav-link">Productos</a>
           <a (click)="goToPage('contact')" class="nav-item nav-link">Contacto</a>
-        </div>
-        <a (click)="goToCart()" class="btn btn-primary rounded-pill py-2 px-4">Carrito</a>
       </div>
+      <a (click)="goToPage('login')" class="btn  rounded-pill py-2 px-4">Ingresar</a>
+      <a (click)="goToPage('register')" class="btn btn-primary rounded-pill py-2 px-4">Registrarse</a>
+  </div>
 </nav>

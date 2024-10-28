@@ -1,0 +1,160 @@
+/* Variables */
+$primary-color: #EE7723; 
+$secondary-color: #00983A; 
+$light-color: #c8cac7;
+
+$bg-color-2: darken($secondary-color, 20%);  
+$bg-color-3: lighten($secondary-color, 20%);
+
+$font-family: 'Montserrat', sans-serif; 
+
+.register-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var($primary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: $font-family;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $primary-color; /* Color del título */
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: $secondary-color; /* Color de las etiquetas */
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+
+      &.is-invalid {
+        border-color: #dc3545; /* Color del borde en caso de error */
+      }
+
+      &:focus {
+        border-color: $primary-color; /* Color del borde al enfocar */
+      }
+    }
+
+    .invalid-feedback {
+      color: #dc3545; /* Color del mensaje de error */
+      margin-top: 5px;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: $primary-color; /* Color del botón */
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($primary-color, 10%); /* Efecto hover del botón */
+    }
+  }
+
+  .alert {
+    margin-top: 20px;
+    text-align: center;
+    background-color: $bg-color-3; /* Color de fondo de la alerta */
+    color: $primary-color; /* Color del texto de la alerta */
+    padding: 10px;
+    border-radius: 4px;
+  }
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 82vh; 
+  background-color: $primary-color;
+}
+
+.login-box {
+  text-align: center;
+  width: 400px; 
+  padding: 20px;
+  border: 1px solid $secondary-color; /* Borde del cuadro de login */
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 100px; /* Ancho del logo */
+  height: auto;
+  display: block; 
+  margin: 0 auto; 
+}
+
+.title {
+  color: #000000; /* Color del título en el cuadro de login */
+  margin-bottom: 20px; 
+}
+
+.form-group {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid #E8E8F0; /* Borde de los inputs */
+  border-radius: 4px;
+
+  &:focus {
+    border-color: $primary-color; /* Color del borde al enfocar */
+  }
+}
+
+button {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: $primary-color; /* Color del botón principal */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%); /* Efecto hover del botón */
+  }
+}
+
+.btn-pass {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: $light-color; /* Color del botón de contraseña */
+  color: #000839;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.error-message {
+  color: red; /* Color del mensaje de error */
+  text-align: center; /* Centramos el texto de error */
+}
