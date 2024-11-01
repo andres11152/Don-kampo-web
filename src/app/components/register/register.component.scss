@@ -9,7 +9,7 @@ $bg-color-3: lighten($secondary-color, 20%);
 $font-family: 'Montserrat', sans-serif; 
 
 .register-container {
-  max-width: 400px;
+  max-width: 900px;
   margin: 50px auto;
   padding: 20px;
   background-color: var($primary-color);
@@ -24,7 +24,7 @@ $font-family: 'Montserrat', sans-serif;
   }
 
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
     label {
       display: block;

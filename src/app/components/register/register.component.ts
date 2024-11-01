@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';  // Servicio de autenticación de Angular
+import { AuthService } from '../../service/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']  // Corregido a styleUrls (en plural)
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
@@ -19,18 +19,20 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,  // Servicio para manejar el registro
+    private authService: AuthService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
+      lastname: ['', [Validators.required, Validators.minLength(3)]], // Campo agregado para apellido
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      userType: ['', Validators.required]
     }, {
-      validator: this.mustMatch('password', 'confirmPassword')  // Validador personalizado para contraseñas coincidentes
+      validator: this.mustMatch('password', 'confirmPassword')
     });
   }
 
@@ -41,20 +43,25 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    // Si el formulario es inválido, se detiene el proceso
     if (this.registerForm.invalid) {
+      this.errorMessage = 'Por favor, complete todos los campos correctamente.';
       return;
     }
 
-    // Si es válido, realiza el registro a través del servicio
     this.authService.register(this.registerForm.value).subscribe({
-      next: (response: any) => {  // Tipificación del response
-        console.log('Registro exitoso');
-        this.router.navigate(['/login']);  // Redirige al login después del registro
+      next: (response: any) => {
+        console.log('Registro exitoso:', response);
+        this.router.navigate(['/login']);
       },
-      error: (error: any) => {  // Tipificación del error
+      error: (error: any) => {
         console.error('Error durante el registro', error);
-        this.errorMessage = error.error?.message || 'Error en el registro';  // Captura el mensaje de error
+
+        // Manejo detallado de errores de conexión
+        if (error.status === 0) {
+          this.errorMessage = 'No se pudo conectar con el servidor. Verifique su conexión.';
+        } else {
+          this.errorMessage = error.error?.message || 'Error en el registro. Inténtelo nuevamente.';
+        }
       }
     });
   }

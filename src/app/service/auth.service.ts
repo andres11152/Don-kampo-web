@@ -21,7 +21,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // URL de tu backend Node.js
+  private apiUrl = 'http://localhost:8080'; // URL de tu backend Node.js
   private tokenKey = 'authToken';  // Llave para el token en la cookie
 
   constructor(
@@ -59,7 +59,7 @@ export class AuthService {
 
   // Método para registrar un nuevo usuario
   register(userData: any): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.apiUrl}/register`, userData)
+    return this.http.post<RegisterResponse>(`${this.apiUrl}/api/createusers`, userData)
       .pipe(
         catchError(this.handleError)  // Manejo de errores centralizado
       );

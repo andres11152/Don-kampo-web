@@ -1,33 +1,37 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams } from "@angular/common/http";
-import {Observable} from "rxjs";
-import {CookieService} from "ngx-cookie-service";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ApiService {
-    private urlApi = 'https://'
-   
+  private urlApi = 'http://localhost:8080';  // Cambia esta URL según la ubicación de tu servidor
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-    public get(url: string, params?: HttpParams): Observable<any> {
-        return this.http.get(this.urlApi + url, {
-            params: params
-        });
-    }
+  // Obtener todos los usuarios
+  public getUsers(): Observable<any> {
+    return this.http.get(`${this.urlApi}/api/users`);
+  }
 
-    public post(url: string, body: any): Observable<any> {
-        return this.http.post(this.urlApi + url, body);
-    }
+  // Obtener usuario por ID
+  public getUserById(id: string): Observable<any> {
+    return this.http.get(`${this.urlApi}/api/users/${id}`);
+  }
 
-    public put(url: string, body: any): Observable<any> {
-        return this.http.put(this.urlApi + url, body);
-    }
+  // Crear usuario
+  public createUser(user: any): Observable<any> {
+    return this.http.post(`${this.urlApi}/api/createusers`, user);
+  }
 
-    public delete(url: string, body: any): Observable<any> {
-        return this.http.delete(this.urlApi + url, body);
-    }
+  // Actualizar usuario por ID
+  public updateUser(id: string, user: any): Observable<any> {
+    return this.http.put(`${this.urlApi}/api/users/${id}`, user);
+  }
 
+  // Eliminar usuario por ID
+  public deleteUser(id: string): Observable<any> {
+    return this.http.delete(`${this.urlApi}/api/deleteusers/${id}`);
+  }
 }
